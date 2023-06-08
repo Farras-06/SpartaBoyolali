@@ -23,7 +23,7 @@ Admin Create - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Admin Create</h4>
+                <h4 class="page-title pull-left font-weight-bold font-weight-bold">Admin Create</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ route('admin.admins.index') }}">All Admins</a></li>
@@ -74,7 +74,7 @@ Admin Create - Admin Panel
                         <div class="form-row">
                             <div class="form-group col-md-6 col-sm-6">
                                 <label for="password">Assign Roles</label>
-                                <select name="roles[]" id="roles" class="form-control select2" multiple>
+                                <select name="roles[]" id="roles" class="form-control select2" >
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
@@ -83,6 +83,16 @@ Admin Create - Admin Panel
                             <div class="form-group col-md-6 col-sm-6">
                                 <label for="username">Admin Username</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-sm-6">
+                                <label for="password">Destinasi</label>
+                                <select name="id_destinasi" id="roles" class="form-control ">
+                                    @foreach ($destinasi as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         

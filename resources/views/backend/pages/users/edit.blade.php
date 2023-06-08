@@ -23,7 +23,7 @@ User Edit - Admin Panel
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">User Create</h4>
+                <h4 class="page-title pull-left font-weight-bold font-weight-bold">User Create</h4>
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ route('admin.users.index') }}">All Users</a></li>

@@ -85,6 +85,38 @@ class RolePermissionSeeder extends Seeder
                     'profile.edit',
                 ]
             ],
+            [
+                'group_name' => 'Master Destinasi',
+                'permissions' => [
+                    // role Permissions
+                    'Master Destinasi create',
+                    'Master Destinasi view',
+                    'Master Destinasi edit',
+                    'Master Destinasi delete',
+                    'Master Destinasi approve',
+                ]
+            ],
+            [
+                'group_name' => 'Dashboard Pengelola',
+                'permissions' => [
+                    // role Permissions
+                    'Dashboard Pengelola view',
+                ]
+            ],
+            [
+                'group_name' => 'Dashboard Pengunjung',
+                'permissions' => [
+                    // role Permissions
+                    'Dashboard Pengunjung view',
+                ]
+            ],
+            [
+                'group_name' => 'Profile',
+                'permissions' => [
+                    // role Permissions
+                    'Profile view',
+                ]
+            ],
         ];
 
 

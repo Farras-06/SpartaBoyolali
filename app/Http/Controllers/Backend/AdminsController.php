@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Destinasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -48,7 +49,8 @@ class AdminsController extends Controller
         }
 
         $roles  = Role::all();
-        return view('backend.pages.admins.create', compact('roles'));
+        $destinasi = Destinasi::get();
+        return view('backend.pages.admins.create', compact('roles','destinasi'));
     }
 
     /**
@@ -59,6 +61,7 @@ class AdminsController extends Controller
      */
     public function store(Request $request)
     {
+
         if (is_null($this->user) || !$this->user->can('admin.create')) {
             abort(403, 'Sorry !! You are Unauthorized to create any admin !');
         }
@@ -66,6 +69,7 @@ class AdminsController extends Controller
         // Validation Data
         $request->validate([
             'name' => 'required|max:50',
+            'id_destinasi' => 'required',
             'email' => 'required|max:100|email|unique:admins',
             'username' => 'required|max:100|unique:admins',
             'password' => 'required|min:6|confirmed',
@@ -73,6 +77,7 @@ class AdminsController extends Controller
 
         // Create New Admin
         $admin = new Admin();
+        $admin->id_destinasi = $request->id_destinasi;
         $admin->name = $request->name;
         $admin->username = $request->username;
         $admin->email = $request->email;
@@ -112,7 +117,9 @@ class AdminsController extends Controller
 
         $admin = Admin::find($id);
         $roles  = Role::all();
-        return view('backend.pages.admins.edit', compact('admin', 'roles'));
+        $destinasi = Destinasi::get();
+
+        return view('backend.pages.admins.edit', compact('admin', 'roles','destinasi'));
     }
 
     /**
@@ -141,12 +148,15 @@ class AdminsController extends Controller
 
         // Validation Data
         $request->validate([
+            'id_destinasi' => 'required',
             'name' => 'required|max:50',
             'email' => 'required|max:100|email|unique:admins,email,' . $id,
             'password' => 'nullable|min:6|confirmed',
+            'id_destinasi' => 'required',
         ]);
 
 
+        $admin->id_destinasi = $request->id_destinasi;
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->username = $request->username;

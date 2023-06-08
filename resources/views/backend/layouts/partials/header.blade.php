@@ -1,12 +1,42 @@
+<style>
+    
+.toggle-sidebar{
+    display: none;
+    height: 55px;
+    width: 57px;
+  }
+@media screen and (max-width: 1365px) {
+  .toggle-sidebar{
+    display: inherit;
+  }
+}
+</style>
 <!-- header area start -->
 <div class="header-area">
     <div class="row align-items-center">
         <!-- nav and search button -->
         <div class="col-md-6 col-sm-8 clearfix">
+            <div class="btn btn-dark toggle-sidebar" style="font-size:20px">
+                >
+            </div>
         </div>
         <!-- profile info & task notification -->
-        <div class="col-md-6 col-sm-4 clearfix">
-            <ul class="notification-area pull-right">
+        <div class="col-md-6 col-sm-4 clearfix " >
+            <ul class="" style="float: right">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="https://image.pngaaa.com/163/441163-middle.png" width="40" height="40" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  {{-- <a class="dropdown-item" href="#">Dashboard </a> --}}
+                  <a class="dropdown-item" href="{{ route('admin.logout.submit') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('admin-logout-form').submit();">Log Out</a>
+                </div>
+              </li>   
+            </ul>
+
+            {{-- <ul class="notification-area pull-right">
                 <li id="full-view"><i class="ti-fullscreen"></i></li>
                 <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
                 <li class="dropdown">
@@ -68,7 +98,7 @@
                         </div>
                     </div>
                 </li>
-            </ul>
+            </ul> --}}
         </div>
     </div>
 </div>

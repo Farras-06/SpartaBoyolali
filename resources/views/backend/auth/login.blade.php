@@ -6,7 +6,7 @@
 
 @section('auth-content')
      <!-- login area start -->
-     <div class="login-area">
+     <div class="login-area bg-image overlay" style="background-image: url({{asset('img/Bg_Login.jpg')}});background-size: cover;background-position: center;" >
         <div class="container">
             <div class="login-box ptb--100">
                 <form method="POST" action="{{ route('admin.login.submit') }}">
@@ -39,19 +39,14 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="row mb-4 rmber-area">
-                            <div class="col-6">
-                                <div class="custom-control custom-checkbox mr-sm-2">
-                                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing" name="remember">
-                                    <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
-                                </div>
-                            </div>
-                            {{-- <div class="col-6 text-right">
-                                <a href="#">Forgot Password?</a>
-                            </div> --}}
-                        </div>
+                       
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Sign In <i class="ti-arrow-right"></i></button>
+                        </div>
+                        <div class="row mb-4 rmber-area mt-2">
+                            <div class="col-12">
+                                <label class="" for="">Belum punya akun? <a href="{{ url('register-pengunjung') }}">Klik Disini</a> </label>
+                            </div>
                         </div>
                     </div>
                 </form>

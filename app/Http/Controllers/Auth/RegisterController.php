@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -36,10 +39,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -69,5 +72,36 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function registerPengunjung(){
+        return view('auth.register');
+        
+    }
+    public function registerStore(Request $request)
+    {
+
+        // Validation Data
+        $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required|max:100|email|unique:admins',
+            'username' => 'required|max:100|unique:admins',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        // Create New Admin
+        $admin = new Admin();
+        $admin->name = $request->name;
+        $admin->username = $request->username;
+        $admin->email = $request->email;
+        $admin->password = Hash::make($request->password);
+        $admin->save();
+
+        if ($request->roles) {
+            $admin->assignRole($request->roles);
+        }
+
+        session()->flash('success', 'Register Succesfully!!');
+        return back();
     }
 }
