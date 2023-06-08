@@ -2773,6 +2773,7 @@
         },
         {
             "name": "psr/http-message",
+<<<<<<< HEAD
             "version": "2.0",
             "source": {
                 "type": "git",
@@ -2783,6 +2784,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
                 "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+=======
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+>>>>>>> dd69e94a3808781434fc981c2fe3db78ad5ae811
                 "shasum": ""
             },
             "require": {
@@ -2791,7 +2804,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "2.0.x-dev"
+=======
+                    "dev-master": "1.1.x-dev"
+>>>>>>> dd69e94a3808781434fc981c2fe3db78ad5ae811
                 }
             },
             "autoload": {
@@ -2820,9 +2837,15 @@
                 "response"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/php-fig/http-message/tree/2.0"
             },
             "time": "2023-04-04T09:54:51+00:00"
+=======
+                "source": "https://github.com/php-fig/http-message/tree/1.1"
+            },
+            "time": "2023-04-04T09:50:52+00:00"
+>>>>>>> dd69e94a3808781434fc981c2fe3db78ad5ae811
         },
         {
             "name": "psr/log",
